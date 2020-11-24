@@ -1,16 +1,16 @@
-from people.models import Person
-from people.serializer import PersonSerializer
-from rest_framework import viewsets
-
-from django.contrib.auth.models import User
-from people.serializer import UserSerializer
-from rest_framework.views import APIView
-from rest_framework.authtoken.models import Token
-
 from rest_framework.response import Response
 from rest_framework import status
 
+from people.models import Person
+from people.serializer import PersonSerializer
+from people.serializer import UserSerializer
+
+from rest_framework import viewsets
+from rest_framework import generics
+from rest_framework.views import APIView
+
 from rest_framework.permissions import IsAuthenticated
+from django.contrib.auth import authenticate
 
 
 class PersonViewSet(viewsets.ModelViewSet):
@@ -19,16 +19,25 @@ class PersonViewSet(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticated]
 
 
-class SignUpView(APIView):
-    def post(self, request):
-        user = User()
-        user.password = request.data['password']
-        user.username = request.data['username']
-        user.save()
-        user.set_password(user.password)
-        user.save()
-        token = Token.objects.get(user_id=user.id)
-        user_serializer = UserSerializer(user)
-        data = user_serializer.data
-        data['token'] = token.key
-        return Response(data, status=status.HTTP_201_CREATED)
+class UserCreate(generics.CreateAPIView):
+    authentication_classes = ()
+    permission_classes = ()
+    serializer_class = UserSerializer
+
+
+class LoginView(APIView):
+    authentication_classes = ()
+    permission_classes = ()
+
+    def post(
+        self,
+        request,
+    ):
+        username = request.data.get("username")
+        password = request.data.get("password")
+        user = authenticate(username=username, password=password)
+        if user:
+            return Response({"token": user.auth_token.key})
+        else:
+            return Response({"error": "Wrong Credentials"},
+                            status=status.HTTP_400_BAD_REQUEST)
