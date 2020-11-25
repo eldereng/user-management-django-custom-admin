@@ -85,8 +85,12 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'danielledb',
         'USER': 'root',
-        'PASSWORD': 'root1234'
-    }
+        'PASSWORD': 'root1234',
+        'TEST': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': 'test_danielledb'
+        },
+    },
 }
 
 # Password validation
