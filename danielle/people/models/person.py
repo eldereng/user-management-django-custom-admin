@@ -74,8 +74,14 @@ class Person(BaseModel):
                                      blank=True,
                                      null=True,
                                      verbose_name='Bairro')
-    city = models.CharField(max_length=60, blank=True, null=True)
-    postal_code = models.CharField(max_length=15, blank=True, null=True)
+    city = models.CharField(max_length=60,
+                            blank=True,
+                            null=True,
+                            verbose_name="Cidade")
+    postal_code = models.CharField(max_length=15,
+                                   blank=True,
+                                   null=True,
+                                   verbose_name="CEP")
     RESIDENCE_TYPE_CHOICES = [('U', 'Urbano'), ('R', 'Rural')]
     residence_type = models.CharField(max_length=1,
                                       choices=RESIDENCE_TYPE_CHOICES,
