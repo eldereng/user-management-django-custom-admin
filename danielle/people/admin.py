@@ -2,6 +2,7 @@ from django.contrib import admin
 from people.models import Checkin
 from people.models import Person
 from people.models import Checkout
+from people.models import HomeServices
 
 admin.site.site_header = "Gestão de pessoas"
 admin.site.site_title = "Gestão fácil!"
@@ -54,6 +55,11 @@ class CheckoutAdmin(admin.ModelAdmin):
     list_display = ('checkin', 'created_at')
 
 
+class HomeServicesAdmin(admin.ModelAdmin):
+    list_display = ('person', 'service', 'created_at')
+
+
 admin.site.register(Person, PersonAdmin)
 admin.site.register(Checkin, CheckinAdmin)
 admin.site.register(Checkout, CheckoutAdmin)
+admin.site.register(HomeServices, HomeServicesAdmin)
