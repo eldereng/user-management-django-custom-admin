@@ -15,7 +15,7 @@ class Checkin(BaseModel):
 
     REASON_CHOICES = [('T', 'Paciente'), ('P', 'Acompanhante'),
                       ('F', 'Profissional'), ('V', 'Voluntário'),
-                      ('S', 'Serviços'), ('O', 'Outros')]
+                      ('S', 'Visitantes'), ('O', 'Outros')]
 
     reason = models.CharField(max_length=1,
                               choices=REASON_CHOICES,

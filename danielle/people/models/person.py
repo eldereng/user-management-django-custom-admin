@@ -14,6 +14,7 @@ class Person(BaseModel):
                                    verbose_name='Nome da mãe')
     born_date = models.DateField(blank=True,
                                  null=True,
+                                 help_text="Exemplo: 03/12/2015",
                                  verbose_name='Dt. nascimento')
     death_date = models.DateField(blank=True,
                                   null=True,
@@ -35,6 +36,7 @@ class Person(BaseModel):
     cpf = models.CharField(max_length=14,
                            blank=True,
                            null=True,
+                           help_text='Exemplo: 000.000.000-00',
                            verbose_name='CPF')
     STATE_CHOICES = [("SP", "São Paulo"), ("PR", "Paraná"),
                      ("SC", "Santa Catarina"), ("RS", "Rio Grande do Sul"),
@@ -65,11 +67,14 @@ class Person(BaseModel):
     address_line_1 = models.CharField(max_length=100,
                                       blank=True,
                                       null=True,
+                                      help_text='Rua e número da residência',
                                       verbose_name='Endereço (linha 1)')
-    address_line_2 = models.CharField(max_length=100,
-                                      blank=True,
-                                      null=True,
-                                      verbose_name='Endereço (linha 2)')
+    address_line_2 = models.CharField(
+        max_length=100,
+        blank=True,
+        null=True,
+        help_text='Complemento (apartamento, bloco,...)',
+        verbose_name='Endereço (linha 2)')
     neighbourhood = models.CharField(max_length=60,
                                      blank=True,
                                      null=True,
@@ -81,6 +86,7 @@ class Person(BaseModel):
     postal_code = models.CharField(max_length=15,
                                    blank=True,
                                    null=True,
+                                   help_text='Exemplo: 00.000-000',
                                    verbose_name="CEP")
     RESIDENCE_TYPE_CHOICES = [('U', 'Urbano'), ('R', 'Rural')]
     residence_type = models.CharField(max_length=1,
@@ -91,10 +97,12 @@ class Person(BaseModel):
     private_phone = models.CharField(max_length=30,
                                      blank=True,
                                      null=True,
+                                     help_text='Exemplo: (99) 9 9999-9999',
                                      verbose_name='Tel. p/ contato')
     message_phone = models.CharField(max_length=30,
                                      blank=True,
                                      null=True,
+                                     help_text='Exemplo: (99) 9 9999-9999',
                                      verbose_name='Tel. p/ mensagem')
     observation = models.TextField(max_length=600,
                                    blank=True,
