@@ -1,5 +1,7 @@
 from django.contrib import admin
+from people.models import Checkin
 from people.models import Person
+from people.models import Checkout
 
 admin.site.site_header = "Gestão de pessoas"
 admin.site.site_title = "Gestão fácil!"
@@ -31,4 +33,23 @@ class PersonAdmin(admin.ModelAdmin):
                  })]
 
 
+class CheckinAdmin(admin.ModelAdmin):
+    list_display = ('person', 'reason', 'created_at')
+    list_filter = ['reason']
+    search_fields = ['person']
+    fieldsets = [('Identificação', {
+        'fields': ['person', 'reason']
+    }),
+                 ('Preencher se paciente:', {
+                     'fields':
+                     ['companion', 'treatment', 'ca_number', 'social_vacancy']
+                 }),
+                 ('Outras informações', {
+                     'fields': ['observation'],
+                     'classes': ('collapse', ),
+                 })]
+
+
 admin.site.register(Person, PersonAdmin)
+admin.site.register(Checkin, CheckinAdmin)
+admin.site.register(Checkout)

@@ -1,7 +1,8 @@
 from django.db import models
+from .base import BaseModel
 
 
-class Person(models.Model):
+class Person(BaseModel):
     class Meta:
         verbose_name_plural = "Pessoas"
         verbose_name = "Pessoa"
@@ -93,3 +94,6 @@ class Person(models.Model):
                                    blank=True,
                                    null=True,
                                    verbose_name='Observação')
+
+    def __str__(self):
+        return self.name
