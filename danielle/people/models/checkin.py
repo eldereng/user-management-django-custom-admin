@@ -13,7 +13,7 @@ class Checkin(BaseModel):
                                related_name='main_person',
                                on_delete=models.PROTECT)
 
-    REASON_CHOICES = [('T', 'Paciente'), ('P', 'Acompanhante'),
+    REASON_CHOICES = [('P', 'Paciente'), ('A', 'Acompanhante'),
                       ('F', 'Profissional'), ('V', 'Voluntário'),
                       ('S', 'Visitantes'), ('O', 'Outros')]
 
