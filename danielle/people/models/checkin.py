@@ -52,4 +52,5 @@ class Checkin(BaseModel):
                                    verbose_name='Observação')
 
     def __str__(self):
-        return self.person.name + " " + self.created_at.strftime("%d/%m/%Y")
+        return self.person.name + " " + self.created_at.strftime(
+            "(Entrada em %d/%m/%Y %H:%M)")

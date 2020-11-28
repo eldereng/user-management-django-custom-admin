@@ -9,6 +9,8 @@ class Checkout(BaseModel):
         verbose_name = "Check-out"
 
     checkin = models.ForeignKey(Checkin, on_delete=models.PROTECT)
+    created_at = models.DateTimeField(auto_now_add=True,
+                                      verbose_name="Fechado em")
 
     def __str__(self):
         return self.checkin.person.name + " " + self.created_at.strftime(

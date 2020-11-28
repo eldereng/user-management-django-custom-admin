@@ -50,6 +50,10 @@ class CheckinAdmin(admin.ModelAdmin):
                  })]
 
 
+class CheckoutAdmin(admin.ModelAdmin):
+    list_display = ('checkin', 'created_at')
+
+
 admin.site.register(Person, PersonAdmin)
 admin.site.register(Checkin, CheckinAdmin)
-admin.site.register(Checkout)
+admin.site.register(Checkout, CheckoutAdmin)
