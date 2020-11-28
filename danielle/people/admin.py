@@ -3,6 +3,7 @@ from people.models import Checkin
 from people.models import Person
 from people.models import Checkout
 from people.models import HomeServices
+from people.models import ProfessionalServices
 
 admin.site.site_header = "Gestão de pessoas"
 admin.site.site_title = "Gestão fácil!"
@@ -59,7 +60,12 @@ class HomeServicesAdmin(admin.ModelAdmin):
     list_display = ('person', 'service', 'created_at')
 
 
+class ProfessionalServicesAdmin(admin.ModelAdmin):
+    list_display = ('professional', 'description', 'created_at')
+
+
 admin.site.register(Person, PersonAdmin)
 admin.site.register(Checkin, CheckinAdmin)
 admin.site.register(Checkout, CheckoutAdmin)
 admin.site.register(HomeServices, HomeServicesAdmin)
+admin.site.register(ProfessionalServices, ProfessionalServicesAdmin)

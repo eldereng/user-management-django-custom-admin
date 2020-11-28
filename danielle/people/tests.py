@@ -32,3 +32,6 @@ class TestPerson(APITestCase):
             response.status_code, 200,
             'Expected Response Code 200, received {0} instead.'.format(
                 response.status_code))
+
+
+# Soft delete on Person

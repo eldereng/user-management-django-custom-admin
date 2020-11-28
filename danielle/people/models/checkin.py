@@ -14,7 +14,8 @@ class Checkin(BaseModel):
                                on_delete=models.PROTECT)
 
     REASON_CHOICES = [('T', 'Paciente'), ('P', 'Acompanhante'),
-                      ('V', 'Voluntário'), ('S', 'Serviços'), ('O', 'Outros')]
+                      ('F', 'Profissional'), ('V', 'Voluntário'),
+                      ('S', 'Serviços'), ('O', 'Outros')]
 
     reason = models.CharField(max_length=1,
                               choices=REASON_CHOICES,
