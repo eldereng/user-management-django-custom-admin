@@ -13,11 +13,12 @@ class Checkin(BaseModel):
                                related_name='main_person',
                                on_delete=models.PROTECT)
 
-    REASON_CHOICES = [('P', 'Paciente'), ('A', 'Acompanhante'),
-                      ('F', 'Profissional'), ('V', 'Voluntário'),
-                      ('S', 'Visitantes'), ('O', 'Outros')]
+    REASON_CHOICES = [('pacient', 'Paciente'), ('companion', 'Acompanhante'),
+                      ('professional', 'Profissional'),
+                      ('voluntary', 'Voluntário'), ('visitor', 'Visitantes'),
+                      ('other', 'Outros')]
 
-    reason = models.CharField(max_length=1,
+    reason = models.CharField(max_length=12,
                               choices=REASON_CHOICES,
                               verbose_name='Tipo de check-in')
 
@@ -28,11 +29,12 @@ class Checkin(BaseModel):
                                   verbose_name='Acompanhante',
                                   on_delete=models.PROTECT)
 
-    TREATMENT_CHOICES = [('Q', 'Quimioterapia'), ('R', 'Radioterapia'),
-                         ('S', 'Cirurgia'), ('E', 'Exames'), ('C', 'Consulta'),
-                         ('O', 'Outro')]
+    TREATMENT_CHOICES = [('chemotherapy', 'Quimioterapia'),
+                         ('radiotherapy', 'Radioterapia'),
+                         ('surgery', 'Cirurgia'), ('exams', 'Exames'),
+                         ('appointment', 'Consulta'), ('other', 'Outro')]
 
-    treatment = models.CharField(max_length=1,
+    treatment = models.CharField(max_length=12,
                                  blank=True,
                                  null=True,
                                  choices=TREATMENT_CHOICES,

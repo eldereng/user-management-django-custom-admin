@@ -2,8 +2,10 @@ from rest_framework.response import Response
 from rest_framework import status
 
 from people.models import Person
-from people.serializer import PersonSerializer
-from people.serializer import UserSerializer
+from people.models import Checkin
+from people.serializers import PersonSerializer
+from people.serializers import UserSerializer
+from people.serializers.checkin import CheckinSerializer
 
 from rest_framework import viewsets
 from rest_framework import generics
@@ -16,6 +18,12 @@ from django.contrib.auth import authenticate
 class PersonViewSet(viewsets.ModelViewSet):
     queryset = Person.objects.all()
     serializer_class = PersonSerializer
+    permission_classes = [IsAuthenticated]
+
+
+class CheckinViewSet(viewsets.ModelViewSet):
+    queryset = Checkin.objects.all()
+    serializer_class = CheckinSerializer
     permission_classes = [IsAuthenticated]
 
 

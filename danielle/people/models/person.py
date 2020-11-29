@@ -22,6 +22,7 @@ class Person(BaseModel):
     email = models.EmailField(max_length=100,
                               blank=True,
                               null=True,
+                              unique=True,
                               verbose_name='E-mail')
     GENDER_CHOICES = [
         ('M', 'Masculino'),
@@ -36,6 +37,7 @@ class Person(BaseModel):
     cpf = models.CharField(max_length=14,
                            blank=True,
                            null=True,
+                           unique=True,
                            help_text='Exemplo: 000.000.000-00',
                            verbose_name='CPF')
     STATE_CHOICES = [("SP", "São Paulo"), ("PR", "Paraná"),
@@ -88,8 +90,8 @@ class Person(BaseModel):
                                    null=True,
                                    help_text='Exemplo: 00.000-000',
                                    verbose_name="CEP")
-    RESIDENCE_TYPE_CHOICES = [('U', 'Urbano'), ('R', 'Rural')]
-    residence_type = models.CharField(max_length=1,
+    RESIDENCE_TYPE_CHOICES = [('urban', 'Urbano'), ('rural', 'Rural')]
+    residence_type = models.CharField(max_length=6,
                                       choices=RESIDENCE_TYPE_CHOICES,
                                       blank=True,
                                       null=True,
