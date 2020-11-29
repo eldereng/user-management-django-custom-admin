@@ -62,4 +62,12 @@
 - Add Time Zone
 - Add Language
 
+## Formatters and validations
+
+- Create format numerical string inputs
+- Create format string inputs
+- For each field in models, create a format, if necessary
+- For each field in models, create a validation, if necessary
+- Create unit test for all formatters and validations above
+
 ### Serializers

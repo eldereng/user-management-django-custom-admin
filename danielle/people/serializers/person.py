@@ -1,7 +1,7 @@
 from people.models import Person
 from rest_framework import serializers
 
-from utils.check_cpf import check_cpf
+from utils.cpf.check_cpf import check_cpf
 from utils.format_numerical_text import format_numerical_text
 
 
