@@ -1,4 +1,4 @@
-from utils.format_cpf_string import format_cpf_string
+from utils.cpf.format_cpf_string import format_cpf_string
 
 
 def test_format_cpf_string_return():

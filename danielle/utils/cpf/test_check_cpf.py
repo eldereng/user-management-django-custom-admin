@@ -1,4 +1,4 @@
-from utils.check_cpf import check_cpf
+from utils.cpf.check_cpf import check_cpf
 
 
 def test_check_cpf_returns_true_to_valid_cpf():

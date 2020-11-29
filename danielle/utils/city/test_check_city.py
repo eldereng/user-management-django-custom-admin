@@ -1,4 +1,4 @@
-from utils.check_city import check_city
+from utils.city.check_city import check_city
 
 
 def test_check_city_return_true():
