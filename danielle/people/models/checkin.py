@@ -13,7 +13,7 @@ class Checkin(BaseModel):
                                related_name='main_person',
                                on_delete=models.PROTECT)
 
-    REASON_CHOICES = [('pacient', 'Paciente'), ('companion', 'Acompanhante'),
+    REASON_CHOICES = [('patient', 'Paciente'), ('companion', 'Acompanhante'),
                       ('professional', 'Profissional'),
                       ('voluntary', 'Voluntário'), ('visitor', 'Visitantes'),
                       ('other', 'Outros')]
@@ -29,16 +29,14 @@ class Checkin(BaseModel):
                                   verbose_name='Acompanhante',
                                   on_delete=models.PROTECT)
 
-    TREATMENT_CHOICES = [('chemotherapy', 'Quimioterapia'),
-                         ('radiotherapy', 'Radioterapia'),
-                         ('surgery', 'Cirurgia'), ('exams', 'Exames'),
-                         ('appointment', 'Consulta'), ('other', 'Outro')]
-
-    treatment = models.CharField(max_length=12,
-                                 blank=True,
-                                 null=True,
-                                 choices=TREATMENT_CHOICES,
-                                 verbose_name='Motivo')
+    chemotherapy = models.BooleanField(default=False,
+                                       verbose_name='Quimioterapia')
+    radiotherapy = models.BooleanField(default=False,
+                                       verbose_name='Radioterapia')
+    surgery = models.BooleanField(default=False, verbose_name='Cirurgia')
+    exams = models.BooleanField(default=False, verbose_name='Exames')
+    appointment = models.BooleanField(default=False, verbose_name='Consultas')
+    other = models.BooleanField(default=False, verbose_name='Outros')
 
     ca_number = models.CharField(max_length=20,
                                  blank=True,

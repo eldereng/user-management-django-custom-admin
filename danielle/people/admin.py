@@ -43,8 +43,12 @@ class CheckinAdmin(admin.ModelAdmin):
         'fields': ['person', 'reason']
     }),
                  ('Preencher se paciente:', {
-                     'fields':
-                     ['companion', 'treatment', 'ca_number', 'social_vacancy']
+                     'fields': [
+                         'companion',
+                         ('chemotherapy', 'radiotherapy', 'surgery',
+                          'appointment', 'exams', 'other'), 'ca_number',
+                         'social_vacancy'
+                     ]
                  }),
                  ('Outras informações', {
                      'fields': ['observation'],

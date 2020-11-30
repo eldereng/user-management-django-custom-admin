@@ -6,6 +6,9 @@ from rest_framework.routers import DefaultRouter
 
 router = DefaultRouter()
 router.register('people', views.PersonViewSet)
-router.register('checkins', views.CheckinViewSet)
+# router.register('checkins', views.CheckinViewSet)
 
-urlpatterns = [path('', include(router.urls))]
+urlpatterns = [
+    path('', include(router.urls)),
+    path('checkins/', views.CheckinCreateView.as_view())
+]

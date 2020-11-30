@@ -1,4 +1,8 @@
 from django.db import models
+
+from utils.city.check_city import check_city
+from utils.cpf.check_cpf import check_cpf
+
 from .base import BaseModel
 
 
@@ -39,7 +43,8 @@ class Person(BaseModel):
                            null=True,
                            unique=True,
                            help_text='Exemplo: 000.000.000-00',
-                           verbose_name='CPF')
+                           verbose_name='CPF',
+                           validators=[check_cpf])
     STATE_CHOICES = [("SP", "São Paulo"), ("PR", "Paraná"),
                      ("SC", "Santa Catarina"), ("RS", "Rio Grande do Sul"),
                      ("MS", "Mato Grosso do Sul"), ("RO", "Rondônia"),
@@ -84,7 +89,8 @@ class Person(BaseModel):
     city = models.CharField(max_length=60,
                             blank=True,
                             null=True,
-                            verbose_name="Cidade")
+                            verbose_name="Cidade",
+                            validators=[check_city])
     postal_code = models.CharField(max_length=15,
                                    blank=True,
                                    null=True,

@@ -21,7 +21,15 @@ class PersonViewSet(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticated]
 
 
+"""
 class CheckinViewSet(viewsets.ModelViewSet):
+    queryset = Checkin.objects.all()
+    serializer_class = CheckinSerializer
+    permission_classes = [IsAuthenticated]
+"""
+
+
+class CheckinCreateView(generics.CreateAPIView):
     queryset = Checkin.objects.all()
     serializer_class = CheckinSerializer
     permission_classes = [IsAuthenticated]
