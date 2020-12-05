@@ -27,7 +27,10 @@ class PersonAdmin(admin.ModelAdmin):
                      ]
                  }),
                  ('Contato', {
-                     'fields': ['email', 'private_phone', 'message_phone']
+                     'fields': [
+                         'email', ('ddd_private_phone', 'private_phone'),
+                         ('ddd_message_phone', 'message_phone')
+                     ]
                  }),
                  ('Outras informações', {
                      'fields': ['observation', 'death_date'],
