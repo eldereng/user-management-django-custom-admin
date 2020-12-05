@@ -18,10 +18,15 @@ from django.contrib.auth.models import User
 from rest_framework.permissions import IsAuthenticated
 # from django.contrib.auth import authenticate
 
+from rest_framework import filters
+
 
 class PersonViewSet(viewsets.ModelViewSet):
     queryset = Person.objects.all()
     serializer_class = PersonSerializer
+    filter_backends = [filters.SearchFilter, filters.OrderingFilter]
+    search_fields = ['name']
+    ordering_fields = ['name']
     permission_classes = [IsAuthenticated]
 
 
