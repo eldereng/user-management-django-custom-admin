@@ -54,7 +54,7 @@ class CheckinAdmin(admin.ModelAdmin):
                      ]
                  }),
                  ('Outras informações', {
-                     'fields': ['observation'],
+                     'fields': ['observation', 'active'],
                      'classes': ('collapse', ),
                  })]
 

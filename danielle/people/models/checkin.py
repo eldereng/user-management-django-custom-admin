@@ -52,6 +52,20 @@ class Checkin(BaseModel):
                                    null=True,
                                    verbose_name='Observação')
 
+    active = models.BooleanField(default=True,
+                                 blank=True,
+                                 verbose_name="Ativo")
+
+    def companion_name(self):
+        if self.companion:
+            return self.companion.name
+
+    def person_name(self):
+        return self.person.name
+
+    def formatted_created_at(self):
+        return self.created_at.strftime("%d/%m/%Y")
+
     def __str__(self):
         return self.person.name + " " + self.created_at.strftime(
             "(Entrada em %d/%m/%Y %H:%M)")

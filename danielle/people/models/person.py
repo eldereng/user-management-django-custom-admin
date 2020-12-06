@@ -152,5 +152,13 @@ class Person(BaseModel):
                                    null=True,
                                    verbose_name='Observação')
 
+    def formatted_born_date(self):
+        if self.born_date:
+            return self.born_date.strftime("%d/%m/%Y")
+
+    def formatted_death_date(self):
+        if self.death_date:
+            return self.death_date.strftime("%d/%m/%Y")
+
     def __str__(self):
         return self.name
