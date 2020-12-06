@@ -9,17 +9,17 @@ class CheckCepTest(TestCase):
         cep = "38200125"
         self.assertIsNone(check_cep(cep))
 
-    def test_raise_error_if_more_than_eight_digits(self):
+    def test_raise_error_if_more_than_eight_digits_in_cep(self):
         cep = "123456789"
         with self.assertRaises(ValidationError):
             check_cep(cep)
 
-    def test_raise_error_if_less_than_eight_digits(self):
+    def test_raise_error_if_less_than_eight_digits_in_cep(self):
         cep = "1234567"
         with self.assertRaises(ValidationError):
             check_cep(cep)
 
-    def test_return_error_if_non_digits(self):
+    def test_raise_error_if_non_digits_in_cep(self):
         cep = "1234567a"
         with self.assertRaises(ValidationError):
             check_cep(cep)
