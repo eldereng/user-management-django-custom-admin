@@ -27,9 +27,29 @@
 
 - > python manage.py loaddata seed/people.json
 
-### Test (for while, it's hand make)
+### Test and coverage
+
+- > pytest
+- > coverage run -m pytest
+- > coverage html
+
+### Run the application
 
 - > python manage.py runserver
+
+### Rotas
+
+- Users
+    - `POST /users/` -> Create new user (username,password,email)
+    - `POST /login/` -> Create token (username,password)
+- People
+    - `GET /api/v1/people/` -> List all people.
+    - `POST /api/v1/people/` -> Create new person.
+    - `GET /api/v1/people/<int:id>/` -> List person by id.
+    - `PUT /api/v1/people/<int:id>/` -> Replace all mandatory fields. plus fields in request.
+    - `Patch /api/v1/people/<int:id>/` -> Replace only fields in request.
+    - `Delete /api/v1/people/<int:id>/` -> Delete person by ID
+
 
 ## Steps done
 
@@ -45,7 +65,9 @@
     - ProfessionalServices
 - Add verbose name to models
 - Add help text to models
+- Add blank and null, if necessary
 - Add `__str__` to models
+- Add validators (CPF, CEP, EMAIL, ...)
 
 ### Admin
 - Register model to admin
@@ -71,3 +93,9 @@
 - Create unit test for all formatters and validations above
 
 ### Serializers
+
+- **TODO**
+
+### Views
+
+- **TODO**

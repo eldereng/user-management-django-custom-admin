@@ -2,3 +2,5 @@ myvenv
 templates
 __pycache__
 .pytest_cache
+htmlcov
+.coveragerc
