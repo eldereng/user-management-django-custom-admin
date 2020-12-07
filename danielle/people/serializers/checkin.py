@@ -1,5 +1,4 @@
 from people.models import Checkin
-from .person import PersonSerializer
 from rest_framework import serializers
 
 
@@ -9,6 +8,7 @@ class CheckinSerializer(serializers.ModelSerializer):
     formatted_created_at = serializers.CharField(required=False)
 
     def validate(self, data):
+        # check if patient have a companion
         if data['reason'] == 'patient':
             if 'companion' not in data.keys():
                 raise serializers.ValidationError(

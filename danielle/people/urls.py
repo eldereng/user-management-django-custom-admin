@@ -11,4 +11,5 @@ router.register('checkins', views.CheckinViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
+    path('checkouts/', views.CheckoutCreate.as_view(), name='checkout_create')
 ]

@@ -11,3 +11,14 @@ class CheckinViewSet(viewsets.ModelViewSet):
     # search_fields = ['name']
     # ordering_fields = ['name']
     permission_classes = [IsAuthenticated]
+
+
+"""
+    # check if there's an active checkin
+    peopleWithCheckinActive = Checkin.objects.filter(
+        person_id=data['person'].id, active=True)
+    if peopleWithCheckinActive:
+        raise serializers.ValidationError(
+            {'person': 'Essa pessoa tem um checkin ativo.'})
+    return data
+"""
