@@ -68,6 +68,7 @@
 - Add blank and null, if necessary
 - Add `__str__` to models
 - Add validators (CPF, CEP, EMAIL, ...)
+- Add formatted_field methods to after deserialization
 
 ### Admin
 - Register model to admin
@@ -83,19 +84,25 @@
 - Add Permission
 - Add Time Zone
 - Add Language
+- Add Cors
+- Add Pagination
 
-## Formatters and validations
+## Validations
 
-- Create format numerical string inputs
-- Create format string inputs
-- For each field in models, create a format, if necessary
-- For each field in models, create a validation, if necessary
-- Create unit test for all formatters and validations above
+- For each field in models, create custom validations, if necessary
+- Create unit test for all validations above
 
 ### Serializers
 
-- **TODO**
+- Exclude fields if necessary
+- 
 
 ### Views
+
+- Add class methods (choose right)
+- Add filters
+- Add search
+- Add authentications, authorization, permissions
+
 
 - **TODO**
