@@ -152,19 +152,23 @@ class Person(BaseModel):
                                    null=True,
                                    verbose_name='Observação')
 
+    @property
     def formatted_born_date(self):
         if self.born_date:
             return self.born_date.strftime("%d/%m/%Y")
 
+    @property
     def formatted_death_date(self):
         if self.death_date:
             return self.death_date.strftime("%d/%m/%Y")
 
+    @property
     def formatted_cpf(self):
         if self.cpf:
             return "{}.{}.{}-{}".format(self.cpf[:3], self.cpf[3:6],
                                         self.cpf[6:9], self.cpf[9:11])
 
+    @property
     def formatted_postal_code(self):
         if self.postal_code:
             return "{}-{}".format(self.postal_code[:5], self.postal_code[5:9])

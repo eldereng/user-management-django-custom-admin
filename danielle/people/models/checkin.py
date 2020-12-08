@@ -7,6 +7,7 @@ class Checkin(BaseModel):
     class Meta:
         verbose_name_plural = "Check-in's"
         verbose_name = "Check-in"
+        ordering = ['-created_at']
 
     person = models.ForeignKey(Person,
                                verbose_name='Pessoa',

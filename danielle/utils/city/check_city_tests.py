@@ -1,5 +1,6 @@
 from django.core.exceptions import ValidationError
 from django.test import TestCase
+import pytest
 
 from utils.city.check_city import check_city
 
@@ -13,3 +14,12 @@ class CheckCityTest(TestCase):
         city = "Fake city"
         with self.assertRaises(ValidationError):
             check_city(city)
+
+
+# another way of test
+@pytest.mark.parametrize('city, expected', [("UBERLANDIA", None),
+                                            ("ARACATUBA", None),
+                                            ("VICOSA", None)])
+def test_valid_cities(city, expected):
+    print("testing city ...")
+    assert check_city(city) == expected
