@@ -26,6 +26,8 @@
 ### Run seeds
 
 - > python manage.py loaddata people/seed/people.json
+- > python manage.py loaddata people/seed/checkins.json
+
 
 ### Test and coverage
 
