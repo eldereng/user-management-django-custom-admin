@@ -1,1 +1,1 @@
-web: gunicorn danielle.danielle.wsgi
+web: gunicorn --chdir danielle danielle.wsgi
