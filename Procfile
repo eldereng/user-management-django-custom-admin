@@ -1,1 +1,1 @@
-web: gunicorn HCUFTM.wsgi
+web: gunicorn danielle.danielle.wsgi
