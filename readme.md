@@ -43,7 +43,7 @@
     - `POST /users/` -> Create new user (username,password,email)
     - `POST /login/` -> Create token (username,password)
 - People
-    - `GET /api/v1/people/` -> List all people.
+    - `GET /api/v1/people/` -> List 12 card people.
     - `POST /api/v1/people/` -> Create new person.
     - `GET /api/v1/people/<int:id>/` -> List person by id.
     - `PUT /api/v1/people/<int:id>/` -> Replace all mandatory fields. plus fields in request.
@@ -95,14 +95,15 @@
 ### Serializers
 
 - Exclude fields if necessary
-- 
+- Include fields if necessary
+- Forma
 
 ### Views
 
 - Add class methods (choose right)
+- Add view custom rules
 - Add filters
 - Add search
+- Add ordering
+- Add pagination
 - Add authentications, authorization, permissions
-
-
-- **TODO**
