@@ -31,7 +31,8 @@ if os.environ.get('SECRET_KEY'):
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '*.herokuapp.com', "appapoio.herokuapp.com", "localhost", "127.0.0.1"
+    "*",
+    #'*.herokuapp.com', "appapoio.herokuapp.com", "localhost", "127.0.0.1"
 ]
 
 # Application definition
