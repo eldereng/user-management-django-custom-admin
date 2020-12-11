@@ -3,3 +3,4 @@ from .user import UserCreate, UserRetrieve
 from .checkin import CheckinViewSet
 from .token import CustomObtainAuthToken
 from .checkout import CheckoutCreate
+from .professional_service import ProfessionalServicesViewSet
