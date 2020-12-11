@@ -1,5 +1,3 @@
-## Teste to compare fork projects
-
 ### Create virtual enviroment
 
 - > python -m venv myvenv
