@@ -1,9 +1,9 @@
-from django.urls import reverse
 from rest_framework import status
 from django.contrib.auth import get_user_model
 from rest_framework.authtoken.models import Token
 from rest_framework.test import APITestCase
 from people.models import Person
+from faker import Faker
 
 
 class PersonViewTests(APITestCase):
@@ -36,7 +36,7 @@ class PersonViewTests(APITestCase):
 
         self.client.credentials(HTTP_AUTHORIZATION='Token ' + self.token.key)
 
-        response = self.client.post(url, data, format='json')
+        self.client.post(url, data, format='json')
         self.assertEqual(Person.objects.get(pk=1).cpf, '51286412013')
 
     def test_list_people(self):
@@ -73,3 +73,16 @@ class PersonViewTests(APITestCase):
         self.assertEqual(response.data['results'][1]['name'], "JANE DOE")
         self.assertEqual(response.data['results'][1]['mother_name'],
                          "FULANA DOE")
+
+    def test_list_people_with_12_in_page(self):
+        url = '/api/v1/people/'
+        self.client.credentials(HTTP_AUTHORIZATION='Token ' + self.token.key)
+        for _ in range(20):
+            fake = Faker()
+            data = {"name": fake.name()}
+            self.client.post(url, data, format='json')
+        response = self.client.get(url, format='json')
+        
+        self.assertEqual(response.data['count'], 20)
+        self.assertEqual(len(response.data['results']), 12)
+        self.assertEqual(response.data['next'])
