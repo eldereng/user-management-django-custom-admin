@@ -25,7 +25,7 @@
 
 ### Run seeds
 
-- > python manage.py loaddata seed/people.json
+- > python manage.py loaddata people/seed/people.json
 
 ### Test and coverage
 
