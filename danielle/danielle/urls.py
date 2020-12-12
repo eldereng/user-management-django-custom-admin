@@ -5,6 +5,7 @@ from people.views import UserCreate, CustomObtainAuthToken, UserRetrieve
 from rest_framework.authtoken.views import obtain_auth_token
 
 urlpatterns = [
+    #path('', admin.site.urls),
     path('admin/', admin.site.urls),
     path('api/v1/', include('people.urls')),
     path('users/', UserCreate.as_view(), name='user_create'),
