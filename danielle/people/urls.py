@@ -7,10 +7,10 @@ from rest_framework.routers import DefaultRouter
 router = DefaultRouter()
 router.register('people', views.PersonViewSet)
 router.register('checkins', views.CheckinViewSet)
+router.register('home_services', views.HomeServicesViewSet)
 router.register('professional_services', views.ProfessionalServicesViewSet)
 # router.register('checkins', views.CheckinViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
-    path('checkouts/', views.CheckoutCreate.as_view(), name='checkout_create')
 ]

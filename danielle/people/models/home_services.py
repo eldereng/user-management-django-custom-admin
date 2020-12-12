@@ -11,12 +11,31 @@ class HomeServices(BaseModel):
     person = models.ForeignKey(Person,
                                on_delete=models.PROTECT,
                                verbose_name="Pessoa")
-    SERVICE_CHOICES = [('C', 'Café da manhã'), ('A', 'Almoço'), ('B', 'Banho'),
-                       ('L', 'Lanche da tarde'), ('P', 'Per noite')]
 
-    service = models.CharField(max_length=1,
-                               verbose_name="Nome do serviço",
-                               choices=SERVICE_CHOICES)
+    breakfast = models.BooleanField(default=False,
+                                    blank=True,
+                                    verbose_name="Café da manhã")
+    lunch = models.BooleanField(default=False,
+                                blank=True,
+                                verbose_name="Almoço")
+    snack = models.BooleanField(default=False,
+                                blank=True,
+                                verbose_name="Lanche da tarde")
+    dinner = models.BooleanField(default=False,
+                                 blank=True,
+                                 verbose_name="Jantar")
+    shower = models.BooleanField(default=False,
+                                 blank=True,
+                                 verbose_name="Banho")
+    sleep = models.BooleanField(default=False,
+                                blank=True,
+                                verbose_name="Per noite")
+
+    @property
+    def person_name(self):
+        return self.person.name
 
     def __str__(self):
-        return self.person.name + " (" + self.service + ")"
+        return self.person.name + "[C:{},A:{},L:{},J:{},B:{},P:{}]".format(
+            self.breakfast, self.lunch, self.snack, self.dinner, self.shower,
+            self.sleep)

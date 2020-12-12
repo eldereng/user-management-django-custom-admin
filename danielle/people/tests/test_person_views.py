@@ -82,7 +82,6 @@ class PersonViewTests(APITestCase):
             data = {"name": fake.name()}
             self.client.post(url, data, format='json')
         response = self.client.get(url, format='json')
-        
+
         self.assertEqual(response.data['count'], 20)
         self.assertEqual(len(response.data['results']), 12)
-        self.assertEqual(response.data['next'])

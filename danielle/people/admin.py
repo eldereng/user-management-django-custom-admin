@@ -64,7 +64,8 @@ class CheckoutAdmin(admin.ModelAdmin):
 
 
 class HomeServicesAdmin(admin.ModelAdmin):
-    list_display = ('person', 'service', 'created_at')
+    list_display = ('person', 'breakfast', 'lunch', 'snack', 'dinner',
+                    'shower', 'sleep', 'created_at')
 
 
 class ProfessionalServicesAdmin(admin.ModelAdmin):
