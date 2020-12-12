@@ -69,7 +69,7 @@ class HomeServicesAdmin(admin.ModelAdmin):
 
 
 class ProfessionalServicesAdmin(admin.ModelAdmin):
-    list_display = ('professional', 'description', 'created_at')
+    list_display = ('professional', 'title', 'description', 'created_at')
 
 
 admin.site.register(Person, PersonAdmin)
