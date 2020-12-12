@@ -17,5 +17,9 @@ class ProfessionalServices(BaseModel):
                                    null=True,
                                    verbose_name='Descrição')
 
+    @property
+    def professional_name(self):
+        return self.professional.name
+
     def __str__(self):
         return self.professional.name + " (" + self.description[:10] + ")"
