@@ -2,5 +2,5 @@ from .person import PersonViewSet
 from .user import UserCreate, UserRetrieve
 from .checkin import CheckinViewSet
 from .token import CustomObtainAuthToken
-from .checkout import CheckoutCreate
+from .home_services import HomeServicesViewSet
 from .professional_service import ProfessionalServicesViewSet
