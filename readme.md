@@ -1,6 +1,6 @@
-### Create virtual enviroment
+### Create virtual enviroment 
 
-- > python -m venv myvenv
+- > python -m venv myvenv 
 
 ### Activate virtual enviroment
 
