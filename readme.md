@@ -28,6 +28,7 @@
 - > python manage.py loaddata people/seed/people.json
 - > python manage.py loaddata people/seed/checkins.json
 - > python manage.py loaddata people/seed/home-services.json
+- > python manage.py loaddata people/seed/professional-services.json
 
 
 ### Test and coverage
