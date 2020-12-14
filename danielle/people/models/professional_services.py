@@ -12,6 +12,10 @@ class ProfessionalServices(BaseModel):
                                      on_delete=models.PROTECT,
                                      verbose_name="Profissional")
 
+    title = models.CharField(default="Sem título",
+                             max_length=120,
+                             verbose_name="Título")
+
     description = models.TextField(max_length=600,
                                    blank=True,
                                    null=True,
