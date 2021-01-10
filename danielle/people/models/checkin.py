@@ -61,6 +61,7 @@ class Checkin(BaseModel):
         if self.companion:
             return self.companion.name
 
+    @property
     def person_name(self):
         return self.person.name
 

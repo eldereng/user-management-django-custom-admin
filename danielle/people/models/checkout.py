@@ -8,7 +8,7 @@ class Checkout(BaseModel):
         verbose_name_plural = "Check-out's"
         verbose_name = "Check-out"
 
-    checkin = models.ForeignKey(Checkin, on_delete=models.PROTECT)
+    checkin = models.OneToOneField(Checkin, on_delete=models.PROTECT)
     created_at = models.DateTimeField(auto_now_add=True,
                                       verbose_name="Fechado em")
 
