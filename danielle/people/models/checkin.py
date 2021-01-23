@@ -57,6 +57,7 @@ class Checkin(BaseModel):
                                  blank=True,
                                  verbose_name="Ativo")
 
+    @property
     def companion_name(self):
         if self.companion:
             return self.companion.name
