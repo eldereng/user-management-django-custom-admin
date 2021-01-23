@@ -11,6 +11,6 @@ class ProfessionalServicesViewSet(viewsets.ModelViewSet):
     filter_backends = [
         filters.SearchFilter, DjangoFilterBackend, filters.OrderingFilter
     ]
-    search_fields = ['person__name']
+    search_fields = ['professional__name']
     ordering_fields = ['created_at']
     permission_classes = [IsAuthenticated]

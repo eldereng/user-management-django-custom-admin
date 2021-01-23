@@ -57,10 +57,12 @@ class Checkin(BaseModel):
                                  blank=True,
                                  verbose_name="Ativo")
 
+    @property
     def companion_name(self):
         if self.companion:
             return self.companion.name
 
+    @property
     def person_name(self):
         return self.person.name
 

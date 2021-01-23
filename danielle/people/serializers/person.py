@@ -15,7 +15,8 @@ class PersonSerializer(serializers.ModelSerializer):
         ]
         for field in fields_to_format:
             if field in data.keys():
-                data[field] = format_text(data[field])
+                if data[field]:
+                    data[field] = format_text(data[field])
         return super().to_internal_value(data)
 
     class Meta:
