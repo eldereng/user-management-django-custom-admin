@@ -10,6 +10,12 @@
 
 - > pip install -r requirements.txt
 
+### In production, include enviroment variables
+
+- > set DATABASE_URL=postgres://o.......
+
+- > set SECRET_KEY=e6=m0rind-)pn+aw......
+
 ### Enter project folder
 
 - > cd danielle
