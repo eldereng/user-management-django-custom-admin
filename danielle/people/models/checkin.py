@@ -69,3 +69,14 @@ class Checkin(BaseModel):
     def __str__(self):
         return self.person.name + " " + self.created_at.strftime(
             "(Entrada em %d/%m/%Y %H:%M)")
+
+
+class PatientCompanionCheckin(BaseModel):
+    patient = models.ForeignKey(Person,
+                                verbose_name='Paciente',
+                                related_name='patient_checkin',
+                                on_delete=models.PROTECT)
+    companion = models.ForeignKey(Person,
+                                  verbose_name="Acompanhante",
+                                  related_name='companion_checkin',
+                                  on_delete=models.PROTECT)
